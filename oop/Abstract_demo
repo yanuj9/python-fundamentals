@@ -1,0 +1,41 @@
+
+from abc import ABC, abstractmethod
+
+# class A(ABC):
+
+#     @abstractmethod
+#     def show(self):
+#         pass
+
+# obj1 = A()
+# obj1.show()
+
+class PaymentGateway(ABC):
+    @abstractmethod
+    def pay(self):
+        pass
+
+class AnujPay(PaymentGateway):
+    def pay(self):
+        print("paying using AnujPay")
+
+
+class Razorpay(PaymentGateway):
+    def pay(self): # if method "pay" is renamed to "pe" , the places where is this called, also changes
+        print("paying using Razorpay")
+
+class Purchase:
+
+    def __init__(self, gateway):
+        self.gateway = gateway
+
+    def checkout(self):
+        print("checking out...")
+
+        self.gateway.pay()
+
+gateway1 = Razorpay()
+gateway2 = AnujPay()
+purchase = Purchase(gateway2)
+
+purchase.checkout()

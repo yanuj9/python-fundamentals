@@ -1,0 +1,36 @@
+
+def square(num) :
+    return num * num
+
+def cube(num) :
+    return num * num * num
+
+# def operate(num, operation):
+#     return operation(num) # square(num) -> Functional programming -> higher order function
+
+
+def operate(num, operation):
+    res = 0
+
+    for n in num:
+        res += operation(n)
+    
+    return res
+
+
+# value = 5
+# result = square(value)
+# result = operate(value, square)
+# print(result)
+# result = operate(value, cube)
+# print(result)
+
+
+
+# nums = [5,3,1]
+# result = operate(nums, square)
+# print(result)
+
+nums = [5,3,1]
+result = operate(nums, cube)
+print(result)
